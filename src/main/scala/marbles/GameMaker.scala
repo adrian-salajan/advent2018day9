@@ -1,17 +1,3 @@
-/*
- * ************************************************************************
- *  * ULLINK CONFIDENTIAL INFORMATION
- *  * _______________________________
- *  *
- *  * All Rights Reserved.
- *  *
- *  * NOTICE: This file and its content are the property of Ullink. The
- *  * information included has been classified as Confidential and may
- *  * not be copied, modified, distributed, or otherwise disseminated, in
- *  * whole or part, without the express written permission of Ullink.
- *  ***********************************************************************
- *
- */
 package marbles
 
 import java.util.Date
@@ -50,19 +36,6 @@ class GameMaker extends Actor {
 
   def ready: Receive = {
     case NextTurn =>
-//      if (marbleIndex <= totalMarbles) {
-//        if (this.playerTurns.isEmpty) {
-//          this.playerTurns = playerz
-//        }
-//        val (nextPlayer, nextPlayerTurns) = (playerTurns.head, playerTurns.tail)
-//        playerTurns = nextPlayerTurns
-//        nextPlayer ! Player.PlaceMarble(marbleIndex)
-//        marbleIndex = marbleIndex + 1
-//        if (marbleIndex == totalMarbles) {
-//          playerz.foreach(_ ! GetScore)
-//        }
-//      }
-
       if (marbleIndex < totalMarbles) {
         val nextPlayer: ActorRef = rotatePlayerTurn
         nextPlayer ! Player.PlaceMarble(marbleIndex)
